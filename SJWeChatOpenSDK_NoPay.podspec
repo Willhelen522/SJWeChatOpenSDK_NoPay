@@ -1,42 +1,26 @@
-#
-# Be sure to run `pod lib lint SJWeChatOpenSDK_NoPay.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
 
 Pod::Spec.new do |s|
   s.name             = 'SJWeChatOpenSDK_NoPay'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of SJWeChatOpenSDK_NoPay.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/Willson1989/SJWeChatOpenSDK_NoPay'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.version          = '1.8.6'
+  s.summary          = '包装了WeChatOpenSDK(NoPay)，方便项目集成'
+  s.homepage         = 'https://github.com/Willhelen522/SJWeChatOpenSDK_NoPay'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Willson1989' => 'yi.zheng@showself.com' }
-  s.source           = { :git => 'https://github.com/Willson1989/SJWeChatOpenSDK_NoPay.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Willson522' => 'will1065908274@163.com' }
+  s.source           = { :git => 'https://github.com/Willhelen522/SJWeChatOpenSDK_NoPay.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'SJWeChatOpenSDK_NoPay/Classes/**/*'
+  s.public_header_files = 'SJWeChatOpenSDK_NoPay/*.h'
   
-  # s.resource_bundles = {
-  #   'SJWeChatOpenSDK_NoPay' => ['SJWeChatOpenSDK_NoPay/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.source_files = 'SJWeChatOpenSDK_NoPay/**/*'
+  
+  s.frameworks = 'CoreGraphics', 'Security', 'WebKit'
+  
+  s.libraries = 'c++', 'sqlite3', 'z'
+  
+  s.vendored_libraries = 'SJWeChatOpenSDK_NoPay/libWeChatSDK.a'
+  
+  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-all_load' }
+  
   # s.dependency 'AFNetworking', '~> 2.3'
 end
